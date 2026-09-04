@@ -1,62 +1,71 @@
 # 🛍️ Customer Shopping Behavior Analysis
 
+An end-to-end **Data Analytics project** that analyzes customer shopping behaviour, purchasing patterns, customer demographics, and sales performance using **Python, Pandas, SQL, PostgreSQL, and Power BI**.
+
+---
+
 ## 📌 Project Overview
 
-**Customer Shopping Behavior Analysis** is an end-to-end data analytics project focused on understanding customer purchasing patterns, spending behaviour, product preferences, and customer demographics.
+The objective of this project is to analyze customer shopping data and generate meaningful business insights that can help organizations understand their customers and improve decision-making.
 
-The project uses **Python, Pandas, SQL, PostgreSQL, and Power BI** to transform raw customer data into meaningful business insights.
+The project follows a complete data analytics workflow:
 
-The analysis starts with data cleaning and exploratory data analysis in Python, continues with SQL-based business analysis, and ends with an interactive Power BI dashboard.
+**Data Collection → Data Cleaning → Exploratory Data Analysis → SQL Analysis → Data Visualization → Business Insights**
+
+Python and Pandas were used for data cleaning and exploratory analysis, SQL was used for business-level analysis, and Power BI was used to create an interactive dashboard.
 
 ---
 
 ## 🎯 Business Problem
 
-Understanding customer shopping behaviour is important for businesses to improve sales, marketing strategies, customer satisfaction, and customer retention.
+Businesses generate large amounts of customer transaction data, but raw data alone does not provide meaningful insights.
 
-This project aims to analyze customer data and answer questions such as:
+This project focuses on understanding:
 
-* Which product categories generate the highest sales?
-* What are the purchasing patterns of customers?
-* Which customers have higher spending?
-* How does customer age affect purchasing behaviour?
-* Which categories are most popular among customers?
-* What insights can help businesses improve their sales strategy?
+* Customer purchasing behaviour
+* Product category performance
+* Customer spending patterns
+* Customer demographics
+* Purchase trends
+* Revenue contribution
+* High-value customers
+
+The analysis helps transform raw customer data into actionable business insights.
 
 ---
 
 ## 🎯 Project Objectives
 
 * Clean and preprocess the customer shopping dataset.
-* Perform Exploratory Data Analysis (EDA) using Python.
-* Analyze customer behaviour using Pandas.
+* Perform Exploratory Data Analysis (EDA).
+* Analyze customer behaviour using Python and Pandas.
 * Perform business analysis using SQL.
-* Work with a PostgreSQL database.
-* Build an interactive Power BI dashboard.
-* Identify important customer and sales trends.
-* Generate actionable business insights.
+* Store and query data using PostgreSQL.
+* Create an interactive Power BI dashboard.
+* Identify important trends and patterns.
+* Generate useful business insights for decision-making.
 
 ---
 
-# 🛠️ Technologies Used
+# 🛠️ Technologies & Tools
 
-| Technology          | Purpose                           |
-| ------------------- | --------------------------------- |
-| 🐍 Python           | Data analysis and preprocessing   |
-| 🐼 Pandas           | Data cleaning and EDA             |
-| 🔢 NumPy            | Numerical operations              |
-| 🗄️ PostgreSQL      | Database management               |
-| 💻 SQL              | Business analysis                 |
-| 📊 Power BI         | Dashboard and visualization       |
-| 📓 Jupyter Notebook | Python analysis                   |
-| 🐙 GitHub           | Project hosting and documentation |
+| Technology          | Purpose                             |
+| ------------------- | ----------------------------------- |
+| 🐍 Python           | Data analysis and preprocessing     |
+| 🐼 Pandas           | Data cleaning and EDA               |
+| 🔢 NumPy            | Numerical operations                |
+| 🗄️ PostgreSQL      | Database management                 |
+| 💻 SQL              | Business analysis                   |
+| 📊 Power BI         | Dashboard and data visualization    |
+| 📓 Jupyter Notebook | Python analysis                     |
+| 🐙 GitHub           | Version control and project hosting |
 
 ---
 
 # 📂 Project Structure
 
 ```text
-Customer-Shopping-Behavior-Analysis/
+Customer-Behavior-Analysis/
 │
 ├── 📄 Business Problem Document.pdf
 │
@@ -66,9 +75,13 @@ Customer-Shopping-Behavior-Analysis/
 │
 ├── 💻 Customer_behavior_analysis.sql
 │
+├── 🖼️ Customer_behavior_dashboard.png
+│
 ├── 📓 Customer_shopping_behaviour_analysis.ipynb
 │
-└── 📁 customer_shopping_behavior.csv
+├── 📄 README.md
+│
+└── 📊 customer_shopping_behavior.csv
 ```
 
 ---
@@ -76,30 +89,30 @@ Customer-Shopping-Behavior-Analysis/
 # 🔄 Project Workflow
 
 ```text
-                 Raw Dataset
-                      │
-                      ▼
-        Data Cleaning & Preprocessing
-                      │
-                      ▼
-             Python / Pandas
-                      │
-                      ▼
+                Customer Dataset
+                       │
+                       ▼
+              Data Cleaning
+                       │
+                       ▼
+             Python & Pandas
+                       │
+                       ▼
           Exploratory Data Analysis
-                      │
-                      ▼
-              SQL Analysis
-                      │
-                      ▼
-              PostgreSQL
-                      │
-                      ▼
-               Power BI
-                      │
-                      ▼
-           Interactive Dashboard
-                      │
-                      ▼
+                       │
+                       ▼
+             PostgreSQL + SQL
+                       │
+                       ▼
+              Business Analysis
+                       │
+                       ▼
+                 Power BI
+                       │
+                       ▼
+          Interactive Dashboard
+                       │
+                       ▼
              Business Insights
 ```
 
@@ -107,21 +120,27 @@ Customer-Shopping-Behavior-Analysis/
 
 # 🐍 1. Python & Pandas Analysis
 
-The `Customer_shopping_behaviour_analysis.ipynb` notebook contains the complete Python-based analysis.
+The file:
+
+```text
+Customer_shopping_behaviour_analysis.ipynb
+```
+
+contains the Python-based data analysis.
 
 Python and Pandas were used for:
 
-* Loading the dataset
-* Understanding the data
+* Data loading
+* Data inspection
 * Data cleaning
-* Handling missing values
-* Checking duplicate records
+* Missing-value analysis
+* Duplicate-value checking
 * Data transformation
 * Exploratory Data Analysis
 * Grouping and aggregation
 * Customer behaviour analysis
 
-### Example Pandas Code
+### Import Libraries
 
 ```python
 import pandas as pd
@@ -136,7 +155,7 @@ df = pd.read_csv("customer_shopping_behavior.csv")
 df.head()
 ```
 
-### Dataset Information
+### Check Dataset Information
 
 ```python
 df.info()
@@ -154,7 +173,7 @@ df.isnull().sum()
 df.duplicated().sum()
 ```
 
-### Statistical Analysis
+### Statistical Summary
 
 ```python
 df.describe()
@@ -166,7 +185,7 @@ df.describe()
 df["category"].value_counts()
 ```
 
-### Revenue by Category
+### Total Purchase Amount by Category
 
 ```python
 df.groupby("category")["purchase_amount"].sum().sort_values(
@@ -174,7 +193,7 @@ df.groupby("category")["purchase_amount"].sum().sort_values(
 )
 ```
 
-### Average Purchase by Category
+### Average Purchase Amount by Category
 
 ```python
 df.groupby("category")["purchase_amount"].mean().sort_values(
@@ -182,15 +201,21 @@ df.groupby("category")["purchase_amount"].mean().sort_values(
 )
 ```
 
-These operations were used to understand customer purchasing patterns and identify important trends in the dataset.
+These Pandas operations were used to identify customer purchasing patterns and category-level performance.
 
 ---
 
 # 💻 2. SQL Analysis
 
-The `Customer_behavior_analysis.sql` file contains SQL queries used to perform business analysis on the customer shopping data.
+The file:
 
-SQL was used to answer important business questions.
+```text
+Customer_behavior_analysis.sql
+```
+
+contains SQL queries used for business analysis.
+
+SQL was used to analyze customer data and answer important business questions.
 
 ### Total Revenue
 
@@ -230,7 +255,7 @@ GROUP BY category
 ORDER BY customer_count DESC;
 ```
 
-### Top Customers
+### Top Customers by Purchase Amount
 
 ```sql
 SELECT 
@@ -242,130 +267,108 @@ ORDER BY purchase_amount DESC
 LIMIT 10;
 ```
 
-SQL analysis helped convert raw customer data into useful business information.
+SQL analysis helped convert raw transactional data into meaningful business information.
 
 ---
 
 # 🗄️ 3. PostgreSQL
 
-PostgreSQL was used as the database for storing and querying the customer shopping data.
-
-The dataset was imported into PostgreSQL and analyzed using SQL queries.
+PostgreSQL was used to store and query the customer shopping dataset.
 
 ### Database Workflow
 
 ```text
-CSV Dataset
-     ↓
-PostgreSQL Database
-     ↓
-SQL Queries
-     ↓
-Business Insights
+customer_shopping_behavior.csv
+            ↓
+       PostgreSQL
+            ↓
+      SQL Queries
+            ↓
+    Business Insights
 ```
+
+The data was loaded into PostgreSQL and analyzed using SQL queries for customer and purchase analysis.
 
 ---
 
 # 📊 4. Power BI Dashboard
 
-The `Customer_Behavior_Dashboard.pbix` file contains the interactive Power BI dashboard.
+The Power BI dashboard was created to provide an interactive visual representation of customer shopping behaviour.
 
-The dashboard was created to provide a visual overview of customer shopping behaviour.
-
-### Dashboard Features
-
-* 📌 KPI Cards
-* 💰 Revenue Analysis
-* 👥 Customer Analysis
-* 🛍️ Category Analysis
-* 📊 Purchase Analysis
-* 👤 Demographic Analysis
-* 🔎 Interactive Filters
-* 📈 Data Visualizations
-
-The Power BI dashboard makes it easier to identify trends and patterns and supports data-driven business decisions.
-
-> **Note:** `.pbix` files need to be opened using **Microsoft Power BI Desktop**.
-
----
-
-# 📄 5. Business Problem Document
-
-`Business Problem Document.pdf` contains the business problem and requirements considered during the development of this project.
-
-It defines the business context, objectives, and analytical requirements of the project.
-
----
-
-# 📄 6. Project Report
-
-`Customer Shopping Behavior Analysis.pdf` contains the detailed documentation/report of the project.
-
-It provides information about the analysis, methodology, findings, and project outcomes.
-
----
-
-# 📁 7. Dataset
-
-The project uses:
+### Dashboard File
 
 ```text
-customer_shopping_behavior.csv
+Customer_Behavior_Dashboard.pbix
 ```
 
-The dataset contains customer shopping information used for:
+### Dashboard Preview
 
-* Customer analysis
-* Purchase analysis
-* Category analysis
-* Demographic analysis
-* Revenue analysis
-* Business insights
+![Customer Behavior Dashboard](Customer_behavior_dashboard.png)
+
+---
+
+## 📈 Dashboard Features
+
+The dashboard provides insights into:
+
+* 💰 Revenue Performance
+* 👥 Customer Analysis
+* 🛍️ Product Category Performance
+* 💵 Purchase Amount
+* 👤 Customer Demographics
+* 📊 Customer Shopping Behaviour
+* 🔎 Interactive Filtering
+* 📌 KPI Metrics
+* 📈 Data Trends
+
+The dashboard helps users quickly understand important patterns and make data-driven business decisions.
+
+> **Note:** The `.pbix` file can be opened using **Microsoft Power BI Desktop**.
 
 ---
 
 # 💡 Key Business Insights
 
-The analysis helps businesses understand:
+The analysis helps identify:
 
-* Customer purchasing behaviour
-* Spending patterns
-* Popular product categories
-* Category-wise revenue performance
-* Customer demographics
-* High-value customers
-* Purchasing trends
-
-These insights can support better **marketing, customer retention, product planning, and sales strategies**.
+* Which product categories perform better.
+* Customer purchasing and spending patterns.
+* Differences in customer behaviour across demographics.
+* High-value customers based on purchase amount.
+* Category-wise revenue contribution.
+* Popular customer purchasing segments.
+* Opportunities for targeted marketing and customer retention.
 
 ---
 
 # 📈 Business Value
 
-This project demonstrates how raw customer data can be transformed into actionable business insights using an end-to-end analytics workflow.
+The project demonstrates how data analytics can help businesses make better decisions.
 
 ### Business Benefits
 
-✅ Better understanding of customers
-✅ Identification of high-value customers
-✅ Improved marketing strategies
-✅ Better product and category planning
-✅ Data-driven decision making
-✅ Improved sales analysis
-✅ Interactive business reporting
+✅ Understand customer preferences
+✅ Identify high-value customers
+✅ Analyze category performance
+✅ Improve marketing strategies
+✅ Understand purchasing patterns
+✅ Support customer retention
+✅ Make data-driven business decisions
 
 ---
 
 # 🧠 Skills Demonstrated
 
-### Python
+### Python & Pandas
 
-* Python
-* Pandas
-* NumPy
 * Data Cleaning
 * Data Preprocessing
 * Exploratory Data Analysis
+* Data Manipulation
+* GroupBy
+* Filtering
+* Sorting
+* Aggregation
 
 ### SQL
 
@@ -374,14 +377,14 @@ This project demonstrates how raw customer data can be transformed into actionab
 * GROUP BY
 * ORDER BY
 * Aggregate Functions
-* Business Queries
+* Business Analysis Queries
 
 ### PostgreSQL
 
-* Database Creation
+* Database Management
 * Data Import
 * SQL Querying
-* Database Analysis
+* Data Analysis
 
 ### Power BI
 
@@ -389,8 +392,9 @@ This project demonstrates how raw customer data can be transformed into actionab
 * Dashboard Development
 * KPI Cards
 * Charts
-* Filters & Slicers
-* Business Reporting
+* Slicers
+* Interactive Reports
+* Business Intelligence
 
 ### Data Analytics
 
@@ -402,15 +406,36 @@ This project demonstrates how raw customer data can be transformed into actionab
 
 ---
 
-# 🚀 How to Use This Project
+# 📁 Project Files
 
-### 1. Clone the Repository
+| File                                         | Description                               |
+| -------------------------------------------- | ----------------------------------------- |
+| `Business Problem Document.pdf`              | Business problem and project requirements |
+| `Customer Shopping Behavior Analysis.pdf`    | Detailed project report                   |
+| `Customer_Behavior_Dashboard.pbix`           | Interactive Power BI dashboard            |
+| `Customer_behavior_analysis.sql`             | SQL business analysis queries             |
+| `Customer_behavior_dashboard.png`            | Power BI dashboard preview                |
+| `Customer_shopping_behaviour_analysis.ipynb` | Python and Pandas analysis                |
+| `customer_shopping_behavior.csv`             | Customer shopping dataset                 |
+| `README.md`                                  | Project documentation                     |
+
+---
+
+# 🚀 How to Run the Project
+
+## Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repository-name.git
+git clone https://github.com/priyankagargpandey/Customer-Behavior-Analysis.git
 ```
 
-### 2. Open the Jupyter Notebook
+## Step 2: Install Python Libraries
+
+```bash
+pip install pandas numpy sqlalchemy psycopg2-binary jupyter
+```
+
+## Step 3: Open Jupyter Notebook
 
 Open:
 
@@ -418,17 +443,9 @@ Open:
 Customer_shopping_behaviour_analysis.ipynb
 ```
 
-### 3. Install Required Libraries
+Run the notebook cells to perform data cleaning and exploratory analysis.
 
-```bash
-pip install pandas numpy sqlalchemy psycopg2-binary jupyter
-```
-
-### 4. Run the Python Analysis
-
-Run the notebook cells sequentially to perform data cleaning and exploratory data analysis.
-
-### 5. Perform SQL Analysis
+## Step 4: Perform SQL Analysis
 
 Open:
 
@@ -436,9 +453,9 @@ Open:
 Customer_behavior_analysis.sql
 ```
 
-Run the queries in PostgreSQL/pgAdmin.
+Run the SQL queries in PostgreSQL or pgAdmin.
 
-### 6. Open the Power BI Dashboard
+## Step 5: Open Power BI Dashboard
 
 Open:
 
@@ -459,36 +476,17 @@ using Microsoft Power BI Desktop.
         ↓
 📊 Exploratory Data Analysis
         ↓
-💻 SQL + PostgreSQL
+🗄️ PostgreSQL
+        ↓
+💻 SQL Analysis
         ↓
 📈 Power BI Dashboard
         ↓
 💡 Business Insights
 ```
 
-This project demonstrates a complete **end-to-end Data Analytics workflow** from raw data to business intelligence.
+This project demonstrates a complete **end-to-end Data Analytics workflow**, from raw customer data to an interactive business intelligence dashboard.
 
 ---
 
-# 👩‍💻 Author
 
-**Priyanka Pandey**
-
-🎓 B.Tech Computer Science & Engineering
-📊 Aspiring Data Analyst
-
-### Areas of Interest
-
-* Data Analytics
-* Python
-* SQL
-* Power BI
-* PostgreSQL
-* Data Visualization
-* Machine Learning
-
----
-
-## ⭐ If you find this project useful
-
-Feel free to ⭐ star the repository and explore the project files.
